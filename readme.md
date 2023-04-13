@@ -2,9 +2,9 @@
 
 <h1 align='center'>[OnlineM] Scaleform XP System</a></h1><p align='center'><b>GTA:Online Inspired</b></h5>
 
-This Is a free, Standlone XP system, using the XP Bar Scaleform!
+This is a free XP System that uses ESX Framework and the XP Bar Scaleform to form an XP System that rewards users with Money, Items & Weapons when they achieve certain ranks.
 
-The Only Dependency is [oxmysql](https://github.com/overextended/oxmysql) to save the users data!
+The Only other Dependency aside from ESX is [oxmysql](https://github.com/overextended/oxmysql) to save the users data!
 
 # Documentation
 
