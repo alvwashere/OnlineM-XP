@@ -1,5 +1,5 @@
 <p align='center'>I am <b>not</b> the original creator of this resource, all credits go to <b>Mycroft/gta-OnlineM</b> and his <a href='https://github.com/gta-OnlineM/OnlineM-XP'>Original Version</a>.</p>
-<p align='center'><b>NOTE:</b>You can find the "Rewards" Config in `server/main.lua`.</p>
+<p align='center'><b>NOTE:</b> You can find the "Rewards" Config in `server/main.lua`.</p>
 
 <h1 align='center'>[OnlineM] Scaleform XP System</a></h1><p align='center'><b>GTA:Online Inspired</b></h5>
 
