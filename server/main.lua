@@ -17,6 +17,7 @@ Rewards = {
     [3] = {
         type = 'item',
         name = 'bulletproof', 
+        label = 'Bulletproof Vests',
         amount = 10
     },
     [4] = {
@@ -27,12 +28,19 @@ Rewards = {
     [5] = {
         type = 'item', 
         name = 'rarelootbox',
+        label = 'Rare Loot Box',
         amount = 1
     },
     [6] = {
         type = 'weapon',
         name = 'WEAPON_SPECIALCARBINE',
+        label = 'Special Carbine',
         ammo = 999
+    },
+    [7] = {
+        type = 'money',
+        account = 'money', 
+        amount = 500000
     }
 }
 
@@ -152,10 +160,13 @@ function Reward(player, Rank)
         if Rank == k then
             if v.type == 'money' then
                 xPlayer.addAccountMoney(v.account, v.amount)
+                xPlayer.showNotification('You have been given $'..v.amount..' for reaching Rank: '..Rank)
             elseif v.type == 'item' then
                 xPlayer.addInventoryItem(v.name, v.amount)
+                xPlayer.showNotification('You have been given x'..v.amount..' '..v.label..' for reaching Rank: '..Rank)
             elseif v.type == 'weapon' then
                 xPlayer.addWeapon(v.name, v.ammo)
+                xPlayer.showNotification('You have been given an '..v.label..' for reaching Rank: '..Rank)
             end
         end
     end
