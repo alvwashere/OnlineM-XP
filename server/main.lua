@@ -8,6 +8,34 @@ This program Is distributed In the hope that it will be useful, but WITHOUT ANY 
 
 You should have received a copy Of the GNU General Public License along with this program. If Not, see <http://www.gnu.org/licenses/>.]]
 
+Rewards = {
+    [2] = {
+        type = 'money', 
+        account = 'money',
+        amount = 100000
+    },
+    [3] = {
+        type = 'item',
+        name = 'bulletproof', 
+        amount = 10
+    },
+    [4] = {
+        type = 'money', 
+        account = 'money',
+        amount = 250000
+    },
+    [5] = {
+        type = 'item', 
+        name = 'rarelootbox',
+        amount = 1
+    },
+    [6] = {
+        type = 'weapon',
+        name = 'WEAPON_SPECIALCARBINE',
+        ammo = 999
+    }
+}
+
 function Load(player)
     local identifier = GetPlayerLicense(player)
     if not identifier then
@@ -109,9 +137,28 @@ function AddXP(player, amount)
     local currRank = Player(player).state.rank
     if NewXP >= Config.RankLimits[currRank + 1] then
         local Rank = GetNextAvailableRankUp(currRank, NewXP)
+        Reward(player, Rank)
         Player(player).state:set("rank", Rank, true)
     end
     TriggerClientEvent("onlineM-xp:showBar", player)
+end
+
+function Reward(player, Rank)
+    print(player, Rank)
+    xPlayer = ESX.GetPlayerFromId(player)
+
+    for k, v in pairs(Rewards) do
+        print(k)
+        if Rank == k then
+            if v.type == 'money' then
+                xPlayer.addAccountMoney(v.account, v.amount)
+            elseif v.type == 'item' then
+                xPlayer.addInventoryItem(v.name, v.amount)
+            elseif v.type == 'weapon' then
+                xPlayer.addWeapon(v.name, v.ammo)
+            end
+        end
+    end
 end
 
 function RemoveXP(player, amount)
